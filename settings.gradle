@@ -1,0 +1,16 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'piggy-mods'
+
+include 'piggy-lib'
+include 'piggy-admin'
+include 'piggy-inventory'
+include 'piggy-build'

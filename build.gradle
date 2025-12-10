@@ -1,0 +1,56 @@
+plugins {
+	id 'fabric-loom' version '1.13-SNAPSHOT' apply false
+	id 'java'
+}
+
+// Use the same Minecraft version as subprojects
+version = '1.0.0-dev'
+group = 'is.pig.minecraft'
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+	maven {
+		name = 'Fabric'
+		url = 'https://maven.fabricmc.net/'
+	}
+	maven {
+		name = 'Xander Maven'
+		url = 'https://maven.isxander.dev/releases'
+	}
+	maven {
+		name = 'Terraformers'
+		url = 'https://maven.terraformersmc.com/'
+	}
+}
+
+// Configure mod source sets after subprojects are evaluated
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'fabric-loom' // Applique le plugin de modding à tous
+
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+
+    group = "is.piggy.minecraft"
+    version = "1.0.0"
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings loom.officialMojangMappings()
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	
+}
+
+    processResources {
+        inputs.property "version", project.version
+        filesMatching("fabric.mod.json") {
+            expand "version": project.version
+        }
+    }
+}

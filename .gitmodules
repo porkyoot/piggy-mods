@@ -1,0 +1,12 @@
+[submodule "piggy-build"]
+	path = piggy-build
+	url = https://github.com/porkyoot/piggy-build
+[submodule "piggy-lib"]
+	path = piggy-lib
+	url = https://github.com/porkyoot/piggy-lib
+[submodule "piggy-admin"]
+	path = piggy-admin
+	url = https://github.com/porkyoot/piggy-admin
+[submodule "piggy-inventory"]
+	path = piggy-inventory
+	url = https://github.com/porkyoot/piggy-inventory

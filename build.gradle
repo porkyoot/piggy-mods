@@ -1,56 +1,75 @@
+// build.gradle (Racine)
 plugins {
-	id 'fabric-loom' version '1.13-SNAPSHOT' apply false
-	id 'java'
+	id 'fabric-loom' version "${loom_version}" apply false
 }
 
-// Use the same Minecraft version as subprojects
-version = '1.0.0-dev'
-group = 'is.pig.minecraft'
-
-repositories {
-	mavenCentral()
-	mavenLocal()
-	maven {
-		name = 'Fabric'
-		url = 'https://maven.fabricmc.net/'
-	}
-	maven {
-		name = 'Xander Maven'
-		url = 'https://maven.isxander.dev/releases'
-	}
-	maven {
-		name = 'Terraformers'
-		url = 'https://maven.terraformersmc.com/'
-	}
-}
-
-// Configure mod source sets after subprojects are evaluated
 subprojects {
     apply plugin: 'java'
-    apply plugin: 'fabric-loom' // Applique le plugin de modding à tous
+    apply plugin: 'fabric-loom'
+    apply plugin: 'maven-publish'
 
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    //sourceCompatibility = JavaVersion.VERSION_21
+    //targetCompatibility = JavaVersion.VERSION_21
 
-    group = "is.piggy.minecraft"
-    version = "1.0.0"
+    group = project.maven_group
+
+    def shortName = project.name.replace("piggy-", "")
+    
+    // 2. On construit le nom de la variable qu'on cherche (ex: "build_version")
+    def targetProperty = "${shortName}_version"
+    
+    // 3. On vérifie si cette variable existe dans gradle.properties
+    if (rootProject.hasProperty(targetProperty)) {
+        // Si oui, on l'utilise (ex: build_version = 1.2.0)
+        version = rootProject.properties[targetProperty]
+    } else {
+        // Si non (ou pour un mod non listé), on utilise une version par défaut
+        version = rootProject.properties["mod_version"]
+    }
 
     repositories {
         mavenCentral()
+        maven { url = 'https://maven.isxander.dev/releases' }
+		maven {
+            name = "Terraformers"
+            url = "https://maven.terraformersmc.com/"
+        }
     }
 
     dependencies {
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.officialMojangMappings()
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
-}
+        minecraft "com.mojang:minecraft:${project.minecraft_version}"
+        mappings loom.officialMojangMappings()
+        modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+        modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    }
 
     processResources {
+        // Cette ligne force Gradle à refaire le fichier si la version change
         inputs.property "version", project.version
+
         filesMatching("fabric.mod.json") {
+            // C'est ICI que la magie opère : on remplace ${version} par la vraie valeur
             expand "version": project.version
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        it.options.release = 21
+    }
+
+    java {
+        withSourcesJar()
+    }
+
+    publishing {
+        publications {
+            create("mavenJava", MavenPublication) {
+                from components.java
+            }
+        }
+        repositories {
+            mavenLocal()
         }
     }
 }

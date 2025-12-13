@@ -105,8 +105,8 @@ dependencies {
     modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 
-    modImplementation project(":piggy-lib")
-    modImplementation project(":piggy-admin")
-    modImplementation project(":piggy-inventory")
-    modImplementation project(":piggy-build")
+    if (findProject(":piggy-lib") != null) modImplementation project(":piggy-lib")
+    if (findProject(":piggy-admin") != null) modImplementation project(":piggy-admin")
+    if (findProject(":piggy-inventory") != null) modImplementation project(":piggy-inventory")
+    if (findProject(":piggy-build") != null) modImplementation project(":piggy-build")
 }

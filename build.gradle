@@ -105,8 +105,18 @@ dependencies {
     modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 
-    if (findProject(":piggy-lib") != null) runtimeOnly project(":piggy-lib")
-    if (findProject(":piggy-admin") != null) runtimeOnly project(":piggy-admin")
-    if (findProject(":piggy-inventory") != null) runtimeOnly project(":piggy-inventory")
-    if (findProject(":piggy-build") != null) runtimeOnly project(":piggy-build")
+    // Only add subproject dependencies if ALL subprojects exist (full repo).
+    // This prevents issues when building individual modules in CI where the root
+    // project would try to add a module as a dependency to itself.
+    def hasAllSubprojects = findProject(":piggy-lib") != null &&
+                            findProject(":piggy-admin") != null &&
+                            findProject(":piggy-inventory") != null &&
+                            findProject(":piggy-build") != null
+    
+    if (hasAllSubprojects) {
+        modImplementation project(":piggy-lib")
+        modImplementation project(":piggy-admin")
+        modImplementation project(":piggy-inventory")
+        modImplementation project(":piggy-build")
+    }
 }

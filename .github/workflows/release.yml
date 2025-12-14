@@ -22,9 +22,16 @@ jobs:
     runs-on: ubuntu-24.04
     
     steps:
-    - name: Checkout repository
+    - name: Checkout Master Project
       uses: actions/checkout@v4
       with:
+        repository: porkyoot/piggy-mods
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Checkout Submodule (Current)
+      uses: actions/checkout@v4
+      with:
+        path: ${{ inputs.project }}
         token: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Configure Git

@@ -71,6 +71,28 @@ echo "Committing changes..."
 git add .
 git commit -m "chore: bump $PROJECT to v$VERSION"
 
+# If piggy-lib, also commit changes in submodules
+if [ "$PROJECT" = "piggy-lib" ]; then
+    echo ""
+    echo "Committing dependency updates in submodules..."
+    
+    for submodule in piggy-admin piggy-build piggy-inventory; do
+        cd "$submodule"
+        if git diff --quiet; then
+            echo "  No changes in $submodule"
+        else
+            git add README.md src/main/resources/fabric.mod.json src/gametest/resources/fabric.mod.json 2>/dev/null || true
+            git commit -m "chore: update piggy-lib dependency to v$VERSION" || echo "  No changes to commit in $submodule"
+            echo "  ✓ Committed changes in $submodule"
+        fi
+        cd ..
+    done
+    
+    # Update parent repo to reference new submodule commits
+    git add piggy-admin piggy-build piggy-inventory
+    git commit --amend -m "chore: bump $PROJECT to v$VERSION"
+fi
+
 # Create git tag
 TAG="${PROJECT}-v${VERSION}"
 echo "Creating tag $TAG..."

@@ -113,10 +113,32 @@ dependencies {
                             findProject(":piggy-inventory") != null &&
                             findProject(":piggy-build") != null
     
-    if (hasAllSubprojects) {
-        modImplementation project(":piggy-lib")
-        modImplementation project(":piggy-admin")
-        modImplementation project(":piggy-inventory")
-        modImplementation project(":piggy-build")
+    if (hasAllSubprojects && !project.hasProperty("bootstrap")) {
+        // safeAdd checks if the project's jar exists before adding it as a dependency.
+        // This prevents configuration failures during clean builds where Loom tries to read missing metadata.
+        def safeAdd = { String projName ->
+            def proj = project(projName)
+            def libDir = new File(proj.buildDir, "libs")
+            if (libDir.exists() && libDir.list()?.any { it.endsWith(".jar") }) {
+                dependencies.add("modImplementation", proj)
+            } else {
+                println "Root Project: Skipping dependency ${projName} because jar not found. Run 'assemble' to build it."
+            }
+        }
+
+        safeAdd(":piggy-lib")
+        safeAdd(":piggy-admin")
+        safeAdd(":piggy-inventory")
+        safeAdd(":piggy-build")
+    }
+}
+
+// Fix for runClient crashing due to gametest resources on classpath
+afterEvaluate {
+    tasks.named("runClient") {
+        classpath = classpath.filter { 
+            !it.path.contains("piggy-admin/build/resources/gametest") && 
+            !it.path.contains("piggy-admin\\build\\resources\\gametest") 
+        }
     }
 }

@@ -93,18 +93,37 @@ if [ "$PROJECT" = "piggy-lib" ]; then
     git commit --amend -m "chore: bump $PROJECT to v$VERSION"
 fi
 
-# Create git tag
-TAG="${PROJECT}-v${VERSION}"
-echo "Creating tag $TAG..."
-git tag "$TAG"
+# Push dependent submodules if we made dependency update commits
+if [ "$PROJECT" = "piggy-lib" ]; then
+    echo ""
+    echo "Pushing dependency submodules..."
+    for submodule in piggy-admin piggy-build piggy-inventory; do
+        echo "Pushing $submodule..."
+        git -C "$submodule" push origin HEAD || echo "  Warning: failed to push $submodule"
+    done
+fi
 
 echo ""
-echo "✓ Version bump complete!"
+echo "Pushing $PROJECT codebase (in case of unpushed changes)..."
+git -C "$PROJECT" push origin HEAD || echo "  Warning: failed to push $PROJECT"
+
 echo ""
-echo "Next steps:"
-echo "  1. Review changes: git show HEAD"
-echo "  2. Push changes: git push origin main"
-echo "  3. Push tag: git push origin $TAG"
+echo "Pushing root project..."
+git push origin HEAD || echo "  Warning: failed to push root project"
+
+# Make a tag in the relevant subproject and push it
+SUBPROJECT_TAG="v${VERSION}"
 echo ""
-echo "Or push everything at once:"
-echo "  git push origin main --tags"
+echo "Creating and pushing tag $SUBPROJECT_TAG in $PROJECT..."
+git -C "$PROJECT" tag "$SUBPROJECT_TAG" 2>/dev/null || true
+git -C "$PROJECT" push origin "$SUBPROJECT_TAG" || echo "  Warning: failed to push tag $SUBPROJECT_TAG for $PROJECT"
+
+# Create root git tag
+TAG="${PROJECT}-v${VERSION}"
+echo ""
+echo "Creating and pushing root tag $TAG..."
+git tag "$TAG" 2>/dev/null || true
+git push origin "$TAG" || echo "  Warning: failed to push root tag $TAG"
+
+echo ""
+echo "✓ Version bump and release trigger complete!"

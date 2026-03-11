@@ -20,4 +20,5 @@
 [x] TNT Tp the author not @s (admin) like intended
 [x] Log ender crystal and beds in other dimmensions too
 [ ] AI anti swear, insults, threats, dox, politics/religion/sensitive topics
-[ ] Make ALL operations obey the click per second setting
+[x] Make ALL operations obey the click per second setting
+[ ] Remove debug before release

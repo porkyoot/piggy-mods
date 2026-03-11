@@ -16,8 +16,8 @@
 [x] Adding continous crafting
 [ ] Adding fast trade
 [x] Adding continious operations like stone cutter, etc
-[ ] XRAY add iron, gold and emeralds
-[ ] TNT Tp the author not @s (admin) like intended
-[ ] Log ender crystal and beds in other dimmensions too
+[x] XRAY add iron, gold and emeralds to the list of precious ores. Add longer detection window too
+[x] TNT Tp the author not @s (admin) like intended
+[x] Log ender crystal and beds in other dimmensions too
 [ ] AI anti swear, insults, threats, dox, politics/religion/sensitive topics
 [ ] Make ALL operations obey the click per second setting

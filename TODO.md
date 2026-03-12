@@ -12,7 +12,7 @@
 [x] Add support for deposit/withdraw all items to/from a modded chest or inventory (sophisticated storage)
 [x] Add message when break protection saved the player
 [x] Protect non silktouchable blocks in silktouch mode from being mined at all (budding amethyst, suspicious blocks)
-[ ] Visuals got broken with shaders
+[x] Visuals got broken with shaders
 [x] Adding continous crafting
 [ ] Adding fast trade
 [x] Adding continious operations like stone cutter, etc
@@ -21,4 +21,4 @@
 [x] Log ender crystal and beds in other dimmensions too
 [ ] AI anti swear, insults, threats, dox, politics/religion/sensitive topics
 [x] Make ALL operations obey the click per second setting
-[ ] Remove debug before release
+[x] Remove debug before release

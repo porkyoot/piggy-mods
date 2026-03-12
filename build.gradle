@@ -10,11 +10,12 @@ subprojects {
     apply plugin: 'fabric-loom'
     apply plugin: 'maven-publish'
 
-    if (project.name == 'piggy-build' || project.name == 'piggy-inventory') {
+    if (project.name == 'piggy-build' || project.name == 'piggy-inventory' || project.name == 'piggy-admin') {
         loom {
             splitEnvironmentSourceSets()
         }
     }
+
 
     apply plugin: 'maven-publish'
 

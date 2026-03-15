@@ -19,6 +19,7 @@
 [x] XRAY add iron, gold and emeralds to the list of precious ores. Add longer detection window too
 [x] TNT Tp the author not @s (admin) like intended
 [x] Log ender crystal and beds in other dimmensions too
-[ ] AI anti swear, insults, threats, dox, politics/religion/sensitive topics
+[x] AI anti swear, insults, threats, dox, politics/religion/sensitive topics
 [x] Make ALL operations obey the click per second setting
 [x] Remove debug before release
+[ ] FEATURE: Adding light overlay

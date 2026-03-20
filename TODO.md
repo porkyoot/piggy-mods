@@ -29,7 +29,7 @@
 [ ] Make modes more understandable and explicit in inventory mod
 [ ] Light level message less intrusive. Less message in general
 [x] Inverted loot and depo icons
-[ ] Build : parkour placing blocks under you auto
+[x] Build : parkour placing blocks under you auto
 [ ] Investigate villager fast trading
 [ ] Inventory tabs !
 [ ] Loot all ? Violent ?

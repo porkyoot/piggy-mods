@@ -26,13 +26,13 @@
 [x] Sorting bug in big inventory (debug)
 [-] DIFFICULT : Limited barel and controller loot (limited to inventory and only barrels) and depo (only matching)
 [ ] Protect locked slot from modded depo SS
-[ ] Make modes more understandable and explicit in inventory mod
-[ ] Light level message less intrusive. Less message in general
+[x] Make modes more understandable and explicit in inventory mod
+[x] Light level message less intrusive. Less message in general
 [x] Inverted loot and depo icons
 [x] Build : parkour placing blocks under you auto
 [ ] Investigate villager fast trading
 [ ] Inventory tabs !
-[ ] Loot all ? Violent ?
+[-] Loot all ? Violent ?
 [ ] Piggy build other shapes ?
 [ ] Villager loot depo= sell all (non locked)
 [ ] Fast loot and depo in other containers (furnaces, modded anvils, etc) (only matching items)

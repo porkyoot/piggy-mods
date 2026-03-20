@@ -14,7 +14,6 @@
 [x] Protect non silktouchable blocks in silktouch mode from being mined at all (budding amethyst, suspicious blocks)
 [x] Visuals got broken with shaders
 [x] Adding continous crafting
-[ ] Adding fast trade
 [x] Adding continious operations like stone cutter, etc
 [x] XRAY add iron, gold and emeralds to the list of precious ores. Add longer detection window too
 [x] TNT Tp the author not @s (admin) like intended
@@ -24,15 +23,11 @@
 [x] Remove debug before release
 [x] FEATURE: Adding light overlay
 [x] Sorting bug in big inventory (debug)
-[-] DIFFICULT : Limited barel and controller loot (limited to inventory and only barrels) and depo (only matching)
-[-] Protect locked slot from modded depo SS
 [x] Make modes more understandable and explicit in inventory mod
 [x] Light level message less intrusive. Less message in general
 [x] Inverted loot and depo icons
 [x] Build : parkour placing blocks under you auto
 [ ] Investigate villager fast trading
 [ ] Inventory tabs !
-[-] Loot all ? Violent ?
 [ ] Piggy build other shapes ?
-[ ] Villager loot depo= sell all (non locked)
 [x] Fast loot and depo in other containers (furnaces, modded anvils, etc) (only matching items)

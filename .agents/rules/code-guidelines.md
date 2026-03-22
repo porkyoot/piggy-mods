@@ -19,18 +19,27 @@ You must strictly adhere to the following software engineering principles in eve
 2. **DRY (Don't Repeat Yourself):** Extract reusable logic into `piggy-lib` whenever appropriate. Avoid code duplication.
 3. **KISS (Keep It Simple, Stupid):** Avoid over-engineering. Write clean, readable, and straightforward code. Favor clear logic over clever but unreadable optimizations.
 
+## The Central Action Architecture (CRITICAL)
+The mod suite relies on a highly robust, centralized, and rate-limited Action Queue system. You must follow these rules when writing logic that interacts with the player, inventory, or world:
+1. **No Direct Interactions:** Never call raw interaction manager methods (e.g., `interactBlock`, `clickSlot`) or send raw packets directly from a tick event.
+2. **Stateful Actions:** All interactions must be wrapped in an `IAction` object (specifically extending `AbstractAction`). Actions are queued in the central `PiggyActionQueue` located in `piggy-lib`.
+3. **Verification over Assumption:** Actions must be verifiable. Do not assume a packet succeeded. Use the `onExecute(client)` phase to trigger the action, and the `verify(client)` phase to poll for success (e.g., checking if the block actually appeared in the world or the slot actually changed). Actions should automatically time out if they fail for too many ticks.
+4. **Rate Limiting & Anti-Cheat:** Actions flagged as "clicks" are subject to a global CPS (Clicks Per Second) limiter. Frame-perfect survival actions must use `ActionPriority.HIGHEST` to bypass this limiter, while routine actions (sorting, cleanup) use `NORMAL` or `HIGH` to remain human-like.
+
 ## Modern Java Best Practices
-- Use **Java 21 features**: Records for data carriers (especially for Fabric Networking packets/payloads), pattern matching for `instanceof` and `switch`, sealed classes, and `var` where type inference is obvious and improves readability.
+- Use **Java 21 features**: Records for data carriers (especially for Fabric Networking packets, payloads, and prediction results like `FallPredictionResult`), pattern matching for `instanceof` and `switch`, sealed classes, and `var` where type inference is obvious and improves readability.
 - Prefer immutability: Use `final` fields and records where appropriate.
-- Use the Streams API and Optionals safely and cleanly. Avoid deep nesting.
+- Use the Streams API and Optionals safely and cleanly (e.g., using chained comparators for decision matrices). Avoid deep nesting.
 - Handle exceptions gracefully; do not swallow exceptions without proper logging (using `piggy-lib` logging utilities).
 
 ## Project Ecosystem (The "Piggy" Suite)
 Keep the context of the 4 interconnected mods in mind when suggesting code:
-1. **`piggy-lib`:** The foundational library. Put all reusable utilities, standard network packet definitions, custom GUI components, YACL config wrappers, logging, and messaging handlers here. All other mods depend on this.
+1. **`piggy-lib`:** The foundational library. Contains the **central `PiggyActionQueue`**, generic stateful actions (`UseItemAction`, `InteractBlockAction`), the modular `InventorySearcher`, standard network packet definitions, custom GUI components, YACL config wrappers, logging, and messaging handlers. All other mods depend on this.
 2. **`piggy-admin`:** Server-side focused. Contains anti-cheat enforcement, player blame tracking, and advanced moderation tools. Ensure strict server-side authority and proper packet validation here.
-3. **`piggy-build`:** Client-side focused (with server communication when necessary). Handles shape planning, fast/flexible block placement, auto-scaffolding, auto-parkour, and auto-MLG. Code here must be highly performant to avoid client stutter.
-4. **`piggy-inventory`:** Client-side focused. Handles advanced sorting, context-aware tool/weapon swapping, and fast crafting. Ensure safe inventory desync handling and respect server-side inventory validation.
+3. **`piggy-build`:** Client-side focused. Handles shape planning, fast/flexible block placement, auto-scaffolding, auto-parkour, and Auto-MLG. Code here must be highly performant. 
+   - *Auto-MLG Architecture:* Relies on a precise physics engine (`FallSimulator`), an interruptible State Machine (`MlgStateMachine`), and chained stream comparators (`MlgMethodSelector`) to dynamically rank and execute survival methods (Water, Slime, Boat) pushed to the `piggy-lib` queue.
+4. **`piggy-inventory`:** Client-side focused. Handles advanced sorting, context-aware tool/weapon swapping, and fast crafting. 
+   - *Cross-Mod Rule:* Physical inventory changes must be instantiated as generic actions and pushed to `piggy-lib`'s action queue to prevent race conditions with `piggy-build`.
 
 ## Modding-Specific Rules
 - **Environment Separation:** Be hyper-aware of `@Environment(EnvType.CLIENT)` vs Server environments. Never call client-only code (like `MinecraftClient.getInstance()`) from common or server-side classes.

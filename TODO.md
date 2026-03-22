@@ -31,3 +31,10 @@
 [ ] Inventory tabs !
 [ ] Piggy build other shapes ?
 [x] Fast loot and depo in other containers (furnaces, modded anvils, etc) (only matching items)
+
+----
+Regressions:
+[x] CPS is set to 0 in the config (unlimited) but enforced to 1 instead
+[x] CPS is inconsistent in bloc placing mode
+[ ] MLG is not working
+[ ] Can't disable tool switching using the middle option, (might be the same for weapon switching)

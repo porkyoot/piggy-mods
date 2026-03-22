@@ -16,9 +16,3 @@ rm -rf .gradle/loom-cache
 # This allows 'assemble' to run on subprojects without the root project crashing due to missing JARs.
 echo "Step 1: Cleaning and Bootstrapping Subprojects..."
 ./gradlew clean assemble -Pbootstrap
-
-# 2. Final Client Launch
-# Now that subprojects are built (JARs exist in build/libs), we run the normal build.
-# The conditional logic in build.gradle will see the JARs and correctly add them as dependencies.
-echo "Step 2: Launching Client with Fresh Dependencies..."
-./gradlew :runClient

@@ -35,9 +35,9 @@
 [x] CPS is inconsistent in bloc placing mode
 [x] MLG is not working
 [x] Can't disable tool switching using the middle option, (might be the same for weapon switching)
-[ ] Add Snow bucket MLG
-[ ] Add twisting vines MLG
-[ ] Add bed MLG (DO NOT SLEEP, it kills you even in the overworld (Minecraft bug))
+[x] Add Snow bucket MLG
+[x] Add twisting vines MLG
+[x] Add bed MLG (DO NOT SLEEP, it kills you even in the overworld (Minecraft bug))
 [ ] Add boat MLG
 [ ] TRY for vines and ladder MLG
 [ ] Add existing rideable entities MLG (minecart, etc) + Saddle animals if not already saddled
@@ -48,5 +48,5 @@
 [ ] When falling on water loggable bloc un prioritise the water bucket. If selected anyway, use the flexible bloc placement to place the water ABOVE the water loggable block unless the water loggable block is the safe once water logged
 [ ] Do not flash MLG icon if no viable method have been found
 [ ] Stop flashing MLG icon when safe or dead
-[ ] Make a generic place bloc action that will try to place a bloc no mater what (flexible placement) (like the flexible block placement in build mode)
-[ ] Move all generic action to Piggy-lib (scoop liquid, consume food, mount entity, throw eggs/snowballs)
+[x] Make a generic place bloc action that will try to place a bloc no mater what (flexible placement) (like the flexible block placement in build mode)
+[x] Move all generic action to Piggy-lib (scoop liquid, consume food, mount entity, throw eggs/snowballs)

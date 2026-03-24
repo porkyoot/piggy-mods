@@ -1,0 +1,99 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+Fabric Loom: 1.13.6
+Fabric Loom: 1.13.6
+Fabric Loom: 1.13.6
+Fabric Loom: 1.13.6
+Fabric Loom: 1.13.6
+
+> Task :clean
+> Task :piggy-admin:clean
+> Task :piggy-build:clean
+> Task :piggy-inventory:clean
+> Task :piggy-lib:clean
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :jar
+> Task :processIncludeJars
+> Task :validateAccessWidener NO-SOURCE
+> Task :check
+> Task :remapJar
+
+> Task :piggy-lib:compileJava
+Note: /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :remapSourcesJar SKIPPED
+> Task :assemble
+> Task :build
+> Task :piggy-lib:processResources
+> Task :piggy-lib:classes
+> Task :piggy-lib:jar
+> Task :piggy-admin:processResources
+> Task :piggy-admin:compileJava
+> Task :piggy-admin:classes
+> Task :piggy-admin:compileClientJava
+> Task :piggy-admin:processClientResources NO-SOURCE
+> Task :piggy-admin:jar
+> Task :piggy-admin:processIncludeJars
+> Task :piggy-admin:sourcesJar
+> Task :piggy-admin:validateAccessWidener NO-SOURCE
+> Task :piggy-admin:check
+> Task :piggy-build:compileJava NO-SOURCE
+> Task :piggy-build:processResources
+> Task :piggy-build:classes
+
+> Task :piggy-build:compileClientJava
+Note: /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-build/src/client/java/is/pig/minecraft/build/config/PiggyBuildConfig.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :piggy-build:processClientResources
+> Task :piggy-admin:remapJar
+> Task :piggy-build:jar
+> Task :piggy-build:processIncludeJars
+> Task :piggy-build:sourcesJar
+> Task :piggy-build:validateAccessWidener NO-SOURCE
+> Task :piggy-build:check
+> Task :piggy-inventory:compileJava
+> Task :piggy-inventory:processResources
+> Task :piggy-inventory:classes
+> Task :piggy-admin:remapSourcesJar
+> Task :piggy-build:remapJar
+> Task :piggy-build:remapSourcesJar
+> Task :piggy-inventory:compileClientJava
+> Task :piggy-admin:assemble
+> Task :piggy-admin:build
+> Task :piggy-build:assemble
+> Task :piggy-build:build
+> Task :piggy-inventory:processClientResources
+> Task :piggy-inventory:jar
+> Task :piggy-inventory:processIncludeJars
+> Task :piggy-inventory:sourcesJar
+> Task :piggy-inventory:validateAccessWidener NO-SOURCE
+> Task :piggy-inventory:check
+> Task :piggy-lib:processIncludeJars
+> Task :piggy-lib:sourcesJar
+> Task :piggy-lib:validateAccessWidener NO-SOURCE
+> Task :piggy-lib:check
+> Task :piggy-lib:remapSourcesJar
+> Task :piggy-inventory:remapJar
+> Task :piggy-lib:remapJar
+> Task :piggy-lib:assemble
+> Task :piggy-lib:build
+> Task :piggy-inventory:remapSourcesJar
+> Task :piggy-inventory:assemble
+> Task :piggy-inventory:build
+
+[Incubating] Problems report is available at: file:///home/etoile/Projects/Minecraft/Mods/piggy-mods/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 15s
+40 actionable tasks: 40 executed

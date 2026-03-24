@@ -1,0 +1,31 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+Fabric Loom: 1.13.6
+Fabric Loom: 1.13.6
+Fabric Loom: 1.13.6
+Fabric Loom: 1.13.6
+Fabric Loom: 1.13.6
+
+> Task :piggy-lib:compileJava UP-TO-DATE
+> Task :piggy-lib:processResources UP-TO-DATE
+> Task :piggy-lib:classes UP-TO-DATE
+> Task :piggy-lib:jar UP-TO-DATE
+> Task :piggy-build:processResources UP-TO-DATE
+> Task :piggy-build:compileJava NO-SOURCE
+> Task :piggy-build:classes UP-TO-DATE
+> Task :piggy-build:compileClientJava
+> Task :piggy-build:processClientResources UP-TO-DATE
+> Task :piggy-build:jar
+> Task :piggy-build:processIncludeJars UP-TO-DATE
+> Task :piggy-build:sourcesJar
+> Task :piggy-build:validateAccessWidener NO-SOURCE
+> Task :piggy-build:check
+> Task :piggy-build:remapJar
+> Task :piggy-build:remapSourcesJar
+> Task :piggy-build:assemble
+> Task :piggy-build:build
+
+BUILD SUCCESSFUL in 8s
+11 actionable tasks: 5 executed, 6 up-to-date

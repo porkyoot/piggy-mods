@@ -27,14 +27,26 @@
 [x] Light level message less intrusive. Less message in general
 [x] Inverted loot and depo icons
 [x] Build : parkour placing blocks under you auto
-[ ] Investigate villager fast trading
-[ ] Inventory tabs !
+[-] Investigate villager fast trading
+[-] Inventory tabs !
 [ ] Piggy build other shapes ?
 [x] Fast loot and depo in other containers (furnaces, modded anvils, etc) (only matching items)
-
-----
-Regressions:
 [x] CPS is set to 0 in the config (unlimited) but enforced to 1 instead
 [x] CPS is inconsistent in bloc placing mode
-[ ] MLG is not working
-[ ] Can't disable tool switching using the middle option, (might be the same for weapon switching)
+[x] MLG is not working
+[x] Can't disable tool switching using the middle option, (might be the same for weapon switching)
+[ ] Add Snow bucket MLG
+[ ] Add twisting vines MLG
+[ ] Add bed MLG (DO NOT SLEEP, it kills you even in the overworld (Minecraft bug))
+[ ] Add boat MLG
+[ ] TRY for vines and ladder MLG
+[ ] Add existing rideable entities MLG (minecart, etc) + Saddle animals if not already saddled
+[ ] Weapon switch should be high priority
+[ ] Telemetry and verbose logs should be level debug and disabled in production. But for user facing errors (sort or mlg fails) we should display a chat message with an explanation and a link to the file for issue reporting.
+[ ] Take into account MLG cost (item consumption) when selecting the best strategy
+[ ] MLG should be able to use items from the offhand
+[ ] When falling on water loggable bloc un prioritise the water bucket. If selected anyway, use the flexible bloc placement to place the water ABOVE the water loggable block unless the water loggable block is the safe once water logged
+[ ] Do not flash MLG icon if no viable method have been found
+[ ] Stop flashing MLG icon when safe or dead
+[ ] Make a generic place bloc action that will try to place a bloc no mater what (flexible placement) (like the flexible block placement in build mode)
+[ ] Move all generic action to Piggy-lib (scoop liquid, consume food, mount entity, throw eggs/snowballs)

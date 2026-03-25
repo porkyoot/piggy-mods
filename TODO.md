@@ -41,12 +41,12 @@
 [x] Add boat MLG
 [-] TRY for vines and ladder MLG
 [x] Add existing rideable entities MLG (minecart, etc) + Saddle animals if not already saddled
-[ ] Weapon switch should be high priority
-[ ] Telemetry and verbose logs should be level debug and disabled in production. But for user facing errors (sort or mlg fails) we should display a chat message with an explanation and a link to the file for issue reporting.
+[x] Weapon switch should be high priority
+[x] Telemetry and verbose logs should be level debug and disabled in production. But for user facing errors (sort or mlg fails) we should display a chat message with an explanation and a link to the file for issue reporting.
 [x] Take into account MLG cost (item consumption) when selecting the best strategy
 [x] MLG should be able to use items from the offhand
-[ ] When falling on water loggable bloc un prioritise the water bucket. If selected anyway, use the flexible bloc placement to place the water ABOVE the water loggable block unless the water loggable block is the safe once water logged
-[ ] Do not flash MLG icon if no viable method have been found
+[x] When falling on water loggable bloc un prioritise the water bucket. If selected anyway, use the flexible bloc placement to place the water ABOVE the water loggable block unless the water loggable block is the safe once water logged
+[x] Do not flash MLG icon if no viable method have been found
 [x] Stop flashing MLG icon when safe or dead
 [x] Make a generic place bloc action that will try to place a bloc no mater what (flexible placement) (like the flexible block placement in build mode)
 [x] Move all generic action to Piggy-lib (scoop liquid, consume food, mount entity, throw eggs/snowballs)

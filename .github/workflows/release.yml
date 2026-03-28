@@ -130,7 +130,7 @@ jobs:
     - name: Build project
       run: |
         PROJECT="${{ inputs.project }}"
-        ./gradlew :$PROJECT:build
+        ./gradlew :$PROJECT:assemble
         
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2

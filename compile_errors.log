@@ -1,0 +1,306 @@
+
+> Configure project :
+Fabric Loom: 1.17.0-alpha.7
+Fabric Loom: 1.17.0-alpha.7
+Fabric Loom: 1.17.0-alpha.7
+Fabric Loom: 1.17.0-alpha.7
+Fabric Loom: 1.17.0-alpha.7
+
+> Task :compileJava NO-SOURCE
+
+> Task :piggy-lib:compileJava FAILED
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:9: error: cannot find symbol
+import net.minecraft.util.FastColor;
+                         ^
+  symbol:   class FastColor
+  location: package net.minecraft.util
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/IconQueueOverlay.java:128: error: incompatible types: boolean cannot be converted to TriState
+                                .setTextureState(new RenderStateShard.TextureStateShard(qi.icon, false, false))
+                                                                                                 ^
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/IconQueueOverlay.java:127: error: invalid method reference
+                                .setShaderState(new RenderStateShard.ShaderStateShard(GameRenderer::getPositionTexColorShader))
+                                                                                      ^
+  cannot find symbol
+    symbol:   method getPositionTexColorShader()
+    location: class GameRenderer
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/IconQueueOverlay.java:143: error: cannot find symbol
+                VertexConsumer buffer = graphics.bufferSource().getBuffer(invertedType);
+                                                ^
+  symbol:   method bufferSource()
+  location: variable graphics of type GuiGraphics
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/AntiCheatFeedbackManager.java:83: error: cannot find symbol
+        client.player.sendSystemMessage(message);
+                     ^
+  symbol:   method sendSystemMessage(Component)
+  location: variable player of type LocalPlayer
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:221: error: cannot find symbol
+        VertexConsumer buffer = graphics.bufferSource().getBuffer(RenderType.gui());
+                                        ^
+  symbol:   method bufferSource()
+  location: variable graphics of type GuiGraphics
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:273: error: cannot find symbol
+        graphics.bufferSource().endBatch(RenderType.gui());
+                ^
+  symbol:   method bufferSource()
+  location: variable graphics of type GuiGraphics
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:395: error: cannot find symbol
+            graphics.setColor(0.5f, 0.5f, 0.5f, 0.8f);
+                    ^
+  symbol:   method setColor(float,float,float,float)
+  location: variable graphics of type GuiGraphics
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:398: error: cannot find symbol
+            graphics.setColor(rgba[0], rgba[1], rgba[2], 1.0f);
+                    ^
+  symbol:   method setColor(float,float,float,float)
+  location: variable graphics of type GuiGraphics
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:400: error: cannot find symbol
+            graphics.setColor(1f, 1f, 1f, 1f);
+                    ^
+  symbol:   method setColor(float,float,float,float)
+  location: variable graphics of type GuiGraphics
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:403: error: no suitable method found for blit(ResourceLocation,int,int,int,int,int,int,int,int)
+        graphics.blit(item.getIconLocation(selected), x, y, 0, 0, ICON_SIZE, ICON_SIZE, ICON_SIZE, ICON_SIZE);
+                ^
+    method GuiGraphics.blit(Function<ResourceLocation,RenderType>,ResourceLocation,int,int,float,float,int,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method GuiGraphics.blit(Function<ResourceLocation,RenderType>,ResourceLocation,int,int,float,float,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method GuiGraphics.blit(Function<ResourceLocation,RenderType>,ResourceLocation,int,int,float,float,int,int,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method GuiGraphics.blit(Function<ResourceLocation,RenderType>,ResourceLocation,int,int,float,float,int,int,int,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:404: error: cannot find symbol
+        graphics.setColor(1f, 1f, 1f, 1f);
+                ^
+  symbol:   method setColor(float,float,float,float)
+  location: variable graphics of type GuiGraphics
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:79: error: cannot find symbol
+                    int color = image.getPixelRGBA(x, y);
+                                     ^
+  symbol:   method getPixelRGBA(int,int)
+  location: variable image of type NativeImage
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:81: error: package FastColor does not exist
+                    int alpha = FastColor.ABGR32.alpha(color);
+                                         ^
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:85: error: package FastColor does not exist
+                    r += FastColor.ABGR32.red(color);
+                                  ^
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:86: error: package FastColor does not exist
+                    g += FastColor.ABGR32.green(color);
+                                  ^
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:87: error: package FastColor does not exist
+                    b += FastColor.ABGR32.blue(color);
+                                  ^
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:93: error: package FastColor does not exist
+            return FastColor.ARGB32.color(255, (int) (r / count), (int) (g / count), (int) (b / count));
+                            ^
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:100: error: package FastColor does not exist
+        int r = FastColor.ARGB32.red(color);
+                         ^
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:101: error: package FastColor does not exist
+        int g = FastColor.ARGB32.green(color);
+                         ^
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:102: error: package FastColor does not exist
+        int b = FastColor.ARGB32.blue(color);
+                         ^
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/PiggyMessenger.java:34: error: cannot find symbol
+        player.sendSystemMessage(getPrefix().append(Component.translatable(translationKey, args).withStyle(SUCCESS_STYLE)));
+              ^
+  symbol:   method sendSystemMessage(MutableComponent)
+  location: variable player of type Player
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/PiggyMessenger.java:38: error: cannot find symbol
+        player.sendSystemMessage(getPrefix().append(Component.translatable(translationKey, args).withStyle(ERROR_STYLE)));
+              ^
+  symbol:   method sendSystemMessage(MutableComponent)
+  location: variable player of type Player
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/PiggyMessenger.java:42: error: cannot find symbol
+        player.sendSystemMessage(getPrefix().append(Component.translatable(translationKey, args).withStyle(INFO_STYLE)));
+              ^
+  symbol:   method sendSystemMessage(MutableComponent)
+  location: variable player of type Player
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/telemetry/formatter/PiggyTelemetryFormatter.java:254: error: cannot find symbol
+        while (mutable.getY() >= level.getMinBuildHeight()) {
+                                      ^
+  symbol:   method getMinBuildHeight()
+  location: variable level of type Level
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/telemetry/FileOutputEngine.java:99: error: cannot find symbol
+        client.player.sendSystemMessage(msg);
+                     ^
+  symbol:   method sendSystemMessage(Component)
+  location: variable player of type LocalPlayer
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/action/world/InteractBlockAction.java:33: error: cannot find symbol
+                if (useResult.shouldSwing() || result.shouldSwing()) {
+                             ^
+  symbol:   method shouldSwing()
+  location: variable useResult of type InteractionResult
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/action/world/InteractBlockAction.java:33: error: cannot find symbol
+                if (useResult.shouldSwing() || result.shouldSwing()) {
+                                                     ^
+  symbol:   method shouldSwing()
+  location: variable result of type InteractionResult
+/home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/action/world/InteractBlockAction.java:36: error: cannot find symbol
+            } else if (result.shouldSwing()) {
+                             ^
+  symbol:   method shouldSwing()
+  location: variable result of type InteractionResult
+Note: /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/telemetry/formatter/PiggyTelemetryFormatter.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+29 errors
+
+[Incubating] Problems report is available at: file:///home/etoile/Projects/Minecraft/Mods/piggy-mods/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':piggy-lib:compileJava'.
+> Compilation failed; see the compiler output below.
+  Note: /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/telemetry/formatter/PiggyTelemetryFormatter.java uses or overrides a deprecated API.
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:403: error: no suitable method found for blit(ResourceLocation,int,int,int,int,int,int,int,int)
+          graphics.blit(item.getIconLocation(selected), x, y, 0, 0, ICON_SIZE, ICON_SIZE, ICON_SIZE, ICON_SIZE);
+                  ^
+      method GuiGraphics.blit(Function<ResourceLocation,RenderType>,ResourceLocation,int,int,float,float,int,int,int,int,int) is not applicable
+        (actual and formal argument lists differ in length)
+      method GuiGraphics.blit(Function<ResourceLocation,RenderType>,ResourceLocation,int,int,float,float,int,int,int,int) is not applicable
+        (actual and formal argument lists differ in length)
+      method GuiGraphics.blit(Function<ResourceLocation,RenderType>,ResourceLocation,int,int,float,float,int,int,int,int,int,int) is not applicable
+        (actual and formal argument lists differ in length)
+      method GuiGraphics.blit(Function<ResourceLocation,RenderType>,ResourceLocation,int,int,float,float,int,int,int,int,int,int,int) is not applicable
+        (actual and formal argument lists differ in length)
+  Note: Recompile with -Xlint:deprecation for details.
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/IconQueueOverlay.java:127: error: invalid method reference
+                                  .setShaderState(new RenderStateShard.ShaderStateShard(GameRenderer::getPositionTexColorShader))
+                                                                                        ^
+    cannot find symbol
+      symbol:   method getPositionTexColorShader()
+      location: class GameRenderer
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/IconQueueOverlay.java:128: error: incompatible types: boolean cannot be converted to TriState
+                                  .setTextureState(new RenderStateShard.TextureStateShard(qi.icon, false, false))
+                                                                                                   ^
+  Note: /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java uses unchecked or unsafe operations.
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:9: error: cannot find symbol
+  import net.minecraft.util.FastColor;
+                           ^
+    symbol:   class FastColor
+    location: package net.minecraft.util
+  Note: Recompile with -Xlint:unchecked for details.
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:81: error: package FastColor does not exist
+                      int alpha = FastColor.ABGR32.alpha(color);
+                                           ^
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:85: error: package FastColor does not exist
+                      r += FastColor.ABGR32.red(color);
+                                    ^
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:86: error: package FastColor does not exist
+                      g += FastColor.ABGR32.green(color);
+                                    ^
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:87: error: package FastColor does not exist
+                      b += FastColor.ABGR32.blue(color);
+                                    ^
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:93: error: package FastColor does not exist
+              return FastColor.ARGB32.color(255, (int) (r / count), (int) (g / count), (int) (b / count));
+                              ^
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:100: error: package FastColor does not exist
+          int r = FastColor.ARGB32.red(color);
+                           ^
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:101: error: package FastColor does not exist
+          int g = FastColor.ARGB32.green(color);
+                           ^
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:102: error: package FastColor does not exist
+          int b = FastColor.ARGB32.blue(color);
+                           ^
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/IconQueueOverlay.java:143: error: cannot find symbol
+                  VertexConsumer buffer = graphics.bufferSource().getBuffer(invertedType);
+                                                  ^
+    symbol:   method bufferSource()
+    location: variable graphics of type GuiGraphics
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/AntiCheatFeedbackManager.java:83: error: cannot find symbol
+          client.player.sendSystemMessage(message);
+                       ^
+    symbol:   method sendSystemMessage(Component)
+    location: variable player of type LocalPlayer
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:221: error: cannot find symbol
+          VertexConsumer buffer = graphics.bufferSource().getBuffer(RenderType.gui());
+                                          ^
+    symbol:   method bufferSource()
+    location: variable graphics of type GuiGraphics
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:273: error: cannot find symbol
+          graphics.bufferSource().endBatch(RenderType.gui());
+                  ^
+    symbol:   method bufferSource()
+    location: variable graphics of type GuiGraphics
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:395: error: cannot find symbol
+              graphics.setColor(0.5f, 0.5f, 0.5f, 0.8f);
+                      ^
+    symbol:   method setColor(float,float,float,float)
+    location: variable graphics of type GuiGraphics
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:398: error: cannot find symbol
+              graphics.setColor(rgba[0], rgba[1], rgba[2], 1.0f);
+                      ^
+    symbol:   method setColor(float,float,float,float)
+    location: variable graphics of type GuiGraphics
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:400: error: cannot find symbol
+              graphics.setColor(1f, 1f, 1f, 1f);
+                      ^
+    symbol:   method setColor(float,float,float,float)
+    location: variable graphics of type GuiGraphics
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/ui/GenericRadialMenuScreen.java:404: error: cannot find symbol
+          graphics.setColor(1f, 1f, 1f, 1f);
+                  ^
+    symbol:   method setColor(float,float,float,float)
+    location: variable graphics of type GuiGraphics
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/ColorHelper.java:79: error: cannot find symbol
+                      int color = image.getPixelRGBA(x, y);
+                                       ^
+    symbol:   method getPixelRGBA(int,int)
+    location: variable image of type NativeImage
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/PiggyMessenger.java:34: error: cannot find symbol
+          player.sendSystemMessage(getPrefix().append(Component.translatable(translationKey, args).withStyle(SUCCESS_STYLE)));
+                ^
+    symbol:   method sendSystemMessage(MutableComponent)
+    location: variable player of type Player
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/PiggyMessenger.java:38: error: cannot find symbol
+          player.sendSystemMessage(getPrefix().append(Component.translatable(translationKey, args).withStyle(ERROR_STYLE)));
+                ^
+    symbol:   method sendSystemMessage(MutableComponent)
+    location: variable player of type Player
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/PiggyMessenger.java:42: error: cannot find symbol
+          player.sendSystemMessage(getPrefix().append(Component.translatable(translationKey, args).withStyle(INFO_STYLE)));
+                ^
+    symbol:   method sendSystemMessage(MutableComponent)
+    location: variable player of type Player
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/telemetry/formatter/PiggyTelemetryFormatter.java:254: error: cannot find symbol
+          while (mutable.getY() >= level.getMinBuildHeight()) {
+                                        ^
+    symbol:   method getMinBuildHeight()
+    location: variable level of type Level
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/util/telemetry/FileOutputEngine.java:99: error: cannot find symbol
+          client.player.sendSystemMessage(msg);
+                       ^
+    symbol:   method sendSystemMessage(Component)
+    location: variable player of type LocalPlayer
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/action/world/InteractBlockAction.java:33: error: cannot find symbol
+                  if (useResult.shouldSwing() || result.shouldSwing()) {
+                               ^
+    symbol:   method shouldSwing()
+    location: variable useResult of type InteractionResult
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/action/world/InteractBlockAction.java:33: error: cannot find symbol
+                  if (useResult.shouldSwing() || result.shouldSwing()) {
+                                                       ^
+    symbol:   method shouldSwing()
+    location: variable result of type InteractionResult
+  /home/etoile/Projects/Minecraft/Mods/piggy-mods/piggy-lib/src/main/java/is/pig/minecraft/lib/action/world/InteractBlockAction.java:36: error: cannot find symbol
+              } else if (result.shouldSwing()) {
+                               ^
+    symbol:   method shouldSwing()
+    location: variable result of type InteractionResult
+  29 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 9s
+1 actionable task: 1 executed

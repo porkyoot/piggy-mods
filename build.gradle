@@ -152,3 +152,85 @@ afterEvaluate {
         }
     }
 }
+
+// Add mod-common, mod-api-spi, and mod-adapter-legacy source sets to monolithic projects to fix build during refactoring
+project(':piggy-lib') {
+    sourceSets {
+        main {
+            java {
+                srcDir 'mod-common/src/main/java'
+                srcDir 'mod-api-spi/src/main/java'
+                srcDir 'mod-adapter-legacy/src/main/java'
+            }
+            resources {
+                srcDir 'mod-common/src/main/resources'
+                srcDir 'mod-api-spi/src/main/resources'
+                srcDir 'mod-adapter-legacy/src/main/resources'
+            }
+        }
+    }
+}
+
+project(':piggy-build') {
+    sourceSets {
+        main {
+            java {
+                srcDir 'mod-common/src/main/java'
+                srcDir 'mod-api-spi/src/main/java'
+            }
+            resources {
+                srcDir 'mod-common/src/main/resources'
+                srcDir 'mod-api-spi/src/main/resources'
+            }
+        }
+        client {
+            java {
+                srcDir 'mod-adapter-legacy/src/main/java'
+            }
+            resources {
+                srcDir 'mod-adapter-legacy/src/main/resources'
+            }
+        }
+    }
+}
+
+project(':piggy-admin') {
+    sourceSets {
+        main {
+            java {
+                srcDir 'mod-common/src/main/java'
+                srcDir 'mod-api-spi/src/main/java'
+                srcDir 'mod-adapter-legacy/src/main/java'
+            }
+            resources {
+                srcDir 'mod-common/src/main/resources'
+                srcDir 'mod-api-spi/src/main/resources'
+                srcDir 'mod-adapter-legacy/src/main/resources'
+            }
+        }
+    }
+}
+
+project(':piggy-inventory') {
+    sourceSets {
+        main {
+            java {
+                srcDir 'mod-common/src/main/java'
+                srcDir 'mod-api-spi/src/main/java'
+            }
+            resources {
+                srcDir 'mod-common/src/main/resources'
+                srcDir 'mod-api-spi/src/main/resources'
+            }
+        }
+        client {
+            java {
+                srcDir 'mod-adapter-legacy/src/main/java'
+            }
+            resources {
+                srcDir 'mod-adapter-legacy/src/main/resources'
+            }
+        }
+    }
+}
+

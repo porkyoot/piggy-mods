@@ -11,8 +11,8 @@ echo "Step 0: Cleaning Stale JARs and Gradle Cache..."
 rm -f run/mods/piggy-*.jar
 rm -rf .gradle/loom-cache
 
-# 1. Clean and Bootstrap Build
-# We use -Pbootstrap to tell the root project NOT to try adding dependencies yet.
-# This allows 'assemble' to run on subprojects without the root project crashing due to missing JARs.
-echo "Step 1: Cleaning and Bootstrapping Subprojects..."
-./gradlew clean assemble -Pbootstrap
+echo "Step 1: Cleaning and Bootstrapping piggy-lib..."
+./gradlew :piggy-lib:clean :piggy-lib:assemble -Pbootstrap
+
+echo "Step 2: Building everything else with dependencies..."
+./gradlew assemble

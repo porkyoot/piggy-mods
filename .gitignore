@@ -40,3 +40,6 @@ replay_*.log
 *.jfr
 
 .yacl_src
+build_output*
+libs/*
+violations.txt

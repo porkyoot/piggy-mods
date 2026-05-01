@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "piggy-core-legacy",
+	"version": "${version}",
+	"name": "Piggy Core Legacy",
+	"description": "Legacy core implementation for Piggy mods (1.21.X)",
+	"authors": [
+		"Etoile"
+	],
+	"license": "CC0-1.0",
+	"environment": "*",
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": ">=1.21.1 <1.21.4",
+		"java": ">=21"
+	},
+	"entrypoints": {
+		"main": [
+			"is.pig.minecraft.legacy.PiggyLegacyMod"
+		],
+		"client": [
+			"is.pig.minecraft.legacy.PiggyLegacyMod"
+		]
+	},
+	"mixins": [
+		"piggy-core-legacy.mixins.json"
+	]
+}

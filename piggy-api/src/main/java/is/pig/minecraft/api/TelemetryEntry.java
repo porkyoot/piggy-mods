@@ -1,0 +1,17 @@
+package is.pig.minecraft.api;
+
+import org.slf4j.event.Level;
+
+/**
+ * Base interface for all telemetry entries in the rolling buffer.
+ */
+public interface TelemetryEntry {
+    long timestamp();
+    long tick();
+    Level level();
+    double tps();
+    double mspt();
+    double cps();
+    String pos();
+    String formatted();
+}

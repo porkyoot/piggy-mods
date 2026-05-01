@@ -1,0 +1,22 @@
+{
+	"schemaVersion": 1,
+	"id": "piggy-core-26x",
+	"version": "${version}",
+	"name": "Piggy Core 26.X",
+	"description": "Modern core implementation for Piggy mods (26.X)",
+	"authors": [
+		"Etoile"
+	],
+	"license": "CC0-1.0",
+	"environment": "*",
+	"depends": {
+		"fabricloader": ">=0.25.0",
+		"minecraft": ">=26.0.0",
+		"java": ">=21"
+	},
+	"entrypoints": {
+		"main": [
+			"is.pig.minecraft.modern.PiggyModernMod"
+		]
+	}
+}

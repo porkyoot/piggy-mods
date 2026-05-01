@@ -1,0 +1,15 @@
+base {
+    archivesName = "piggy-core-legacy"
+}
+
+dependencies {
+    implementation project(':piggy-api')
+    
+    // Dependencies on the other modules in the suite
+    modImplementation project(':piggy-admin')
+    modImplementation project(':piggy-inventory')
+    modImplementation project(':piggy-build')
+
+    modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
+    modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+}

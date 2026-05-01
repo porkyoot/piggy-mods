@@ -1,0 +1,63 @@
+package is.pig.minecraft.api;
+
+import java.util.Optional;
+
+/**
+ * Represents a stateful, verifiable action that can be enqueued and executed by
+ * the centralized {@code PiggyActionQueue}. 
+ * 
+ * Actions are processed sequentially and can bypass CPS rate limits if
+ * assigned high priority or specific flags.
+ */
+public interface Action {
+    /**
+     * Executes the primary action or its verification phase.
+     * 
+     * @param client The Minecraft client instance (passed as Object to keep API pure).
+     * @return {@code Optional.of(true)} if the action succeeded and is complete.
+     *         {@code Optional.of(false)} if the action failed or timed out.
+     *         {@code Optional.empty()} if still waiting for server/world verification.
+     */
+    Optional<Boolean> execute(Object client);
+
+    /**
+     * @return The priority level for queue sequencing.
+     */
+    default ActionPriority getPriority() { return ActionPriority.NORMAL; }
+
+    /**
+     * @return True if this action represents a simulated mouse click, subject to CPS limits.
+     */
+    default boolean isClick() { return false; }
+
+    /**
+     * @return True if the action has already sent its initial packet/interaction.
+     */
+    default boolean isInitiated() { return true; }
+
+    /**
+     * @return True if this action should ignore global CPS rate limits regardless of priority.
+     */
+    default boolean ignoreGlobalCps() { return false; }
+    
+    /**
+     * @return True if all preconditions (e.g., cursor state, slot content) match the simulation.
+     */
+    default boolean checkPreconditions(Object client) { return true; }
+
+    /**
+     * @return The callback to trigger when this action completes or fails.
+     */
+    default Optional<ActionCallback> getCallback() { return Optional.empty(); }
+
+    default boolean isVerified(Object client) { return execute(client).orElse(false); }
+
+    /**
+     * @param client The Minecraft client instance.
+     * @return Context-specific telemetry details for forensic logging (e.g., "Slot=5, Item=Bucket").
+     */
+    default String getTelemetry(Object client) { return null; }
+    
+    String getSourceMod();
+    String getName();
+}

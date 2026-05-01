@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "package": "is.pig.minecraft.legacy.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractContainerMenuMixin",
+    "MinecraftAccessorMixin",
+    "MinecraftClientMixin",
+    "MixinHandledScreen",
+    "MixinMinecraft",
+    "MixinMouseHandler",
+    "MixinMultiPlayerGameMode",
+    "BlockItemMixin",
+    "BucketItemMixin",
+    "FlintAndSteelItemMixin",
+    "FireChargeItemMixin",
+    "EndCrystalItemMixin",
+    "FireBlockMixin",
+    "MinecartItemMixin",
+    "FlowingFluidMixin",
+    "AbstractContainerMenuMixin",
+    "ExplosionMixin",
+    "ProjectileMixin",
+    "ServerGamePacketListenerImplMixin",
+    "CreeperMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

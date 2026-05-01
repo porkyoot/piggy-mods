@@ -1,0 +1,19 @@
+base {
+    archivesName = "piggy-core-26x"
+}
+
+dependencies {
+    implementation project(':piggy-api')
+    
+    // Dependencies on the other modules in the suite
+    modImplementation project(':piggy-admin')
+    modImplementation project(':piggy-inventory')
+    modImplementation project(':piggy-build')
+
+    // Modern Minecraft 26.X / Fabric loader dependencies (hypothetical versions)
+    // modImplementation "net.fabricmc:fabric-loader:0.25.0"
+    // modImplementation "com.mojang:minecraft:26.X"
+
+    modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
+    modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+}

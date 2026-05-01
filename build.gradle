@@ -7,34 +7,19 @@ plugins {
 
 subprojects {
     apply plugin: 'java'
-    apply plugin: 'fabric-loom'
     apply plugin: 'maven-publish'
 
-    if (project.name == 'piggy-build' || project.name == 'piggy-inventory' || project.name == 'piggy-admin') {
-        loom {
-            splitEnvironmentSourceSets()
-        }
+    if (project.name == 'piggy-core-legacy' || project.name == 'piggy-core-26x') {
+        apply plugin: 'fabric-loom'
     }
 
-
-    apply plugin: 'maven-publish'
-
-    //sourceCompatibility = JavaVersion.VERSION_21
-    //targetCompatibility = JavaVersion.VERSION_21
-
     group = project.maven_group
-
     def shortName = project.name.replace("piggy-", "")
-    
-    // 2. On construit le nom de la variable qu'on cherche (ex: "build_version")
     def targetProperty = "${shortName}_version"
     
-    // 3. On vérifie si cette variable existe dans gradle.properties
     if (rootProject.hasProperty(targetProperty)) {
-        // Si oui, on l'utilise (ex: build_version = 1.2.0)
         version = rootProject.properties[targetProperty]
     } else {
-        // Si non (ou pour un mod non listé), on utilise une version par défaut
         version = rootProject.properties["mod_version"]
     }
 
@@ -47,21 +32,21 @@ subprojects {
         }
     }
 
-    dependencies {
-        minecraft "com.mojang:minecraft:${project.minecraft_version}"
-        mappings loom.officialMojangMappings()
-        modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    // Loom and Minecraft are ONLY for Core modules or if explicitly needed for Mixins.
+    // However, the rule is Cores ONLY for net.minecraft imports.
+    if (project.name == 'piggy-core-legacy' || project.name == 'piggy-core-26x') {
+        dependencies {
+            minecraft "com.mojang:minecraft:${project.minecraft_version}"
+            mappings loom.officialMojangMappings()
+            modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+            modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+        }
 
-        modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    }
-
-    processResources {
-        // Cette ligne force Gradle à refaire le fichier si la version change
-        inputs.property "version", project.version
-
-        filesMatching("fabric.mod.json") {
-            // C'est ICI que la magie opère : on remplace ${version} par la vraie valeur
-            expand "version": project.version
+        processResources {
+            inputs.property "version", project.version
+            filesMatching("fabric.mod.json") {
+                expand "version": project.version
+            }
         }
     }
 
